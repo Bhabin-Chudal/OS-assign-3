@@ -532,3 +532,11 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+//prints an ifo about me as SMU student
+int
+smu(void)
+{
+  cprintf("Bhabin Chudal @ SMU\n");
+  return 0;
+}

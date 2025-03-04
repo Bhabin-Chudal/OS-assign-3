@@ -56,3 +56,7 @@ struct proc {
 //   original data and bss
 //   fixed-size stack
 //   expandable heap
+
+
+//smu process declaration
+int smu(void);
