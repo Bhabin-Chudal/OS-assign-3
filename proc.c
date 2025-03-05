@@ -564,7 +564,7 @@ int maxpid(void) {
     acquire(&ptable.lock); // Lock the process table
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
         if (p->state != UNUSED && p->pid > maxid){ 
-            maxpid=p->pid; // update pid iff the process is active and p-> pid>maxpid
+            maxid=p->pid; // update pid iff the process is active and p-> pid>maxpid
         }
     }
     release(&ptable.lock); // Unlock the process table
