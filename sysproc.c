@@ -105,3 +105,11 @@ sys_num_procs(void)
 {
  return num_procs();
 }
+
+//calls function maxpid  that gives
+// maximum pid out  of active processes and returns it
+int
+sys_maxpid(void)
+{
+ return maxpid();
+}

@@ -557,3 +557,17 @@ int num_procs(void) {
     return count;
 }
 
+int maxpid(void) {
+    struct proc *p;
+    int maxid = -20;
+
+    acquire(&ptable.lock); // Lock the process table
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        if (p->state != UNUSED && p->pid > maxid){ 
+            maxpid=p->pid; // update pid iff the process is active and p-> pid>maxpid
+        }
+    }
+    release(&ptable.lock); // Unlock the process table
+
+    return maxid;
+}

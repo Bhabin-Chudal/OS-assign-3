@@ -22,3 +22,4 @@
 #define SYS_close  21
 #define SYS_smu    22
 #define SYS_num_procs 23
+#define SYS_maxpid 24

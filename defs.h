@@ -157,6 +157,7 @@ int             fetchstr(uint, char**);
 void            syscall(void);
 int		smu(void);
 int		num_procs(void);
+int		maxpid(void);
 
 // timer.c
 void            timerinit(void);
