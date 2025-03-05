@@ -541,7 +541,7 @@ smu(void)
   return 0;
 }
 
-//this function returns the number of process that is currently running.
+//thi	s function returns the number of process that is currently running.
 int num_procs(void) {
     struct proc *p;
     int count = 0;
@@ -557,17 +557,25 @@ int num_procs(void) {
     return count;
 }
 
+//this function  gives the maximum pid among all active processes 
 int maxpid(void) {
     struct proc *p;
-    int maxid = -20;
+    int max_id = -1;
 
     acquire(&ptable.lock); // Lock the process table
+    cprintf("Debug: Entering maxpid function\n");
+
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-        if (p->state != UNUSED && p->pid > maxid){ 
-            maxid=p->pid; // update pid iff the process is active and p-> pid>maxpid
+        if (p->state != UNUSED) {
+            cprintf("Debug: Checking process with PID: %d\n", p->pid);
+            if (p->pid > max_id) {
+                max_id = p->pid;
+                cprintf("Debug: Updated maxpid to: %d\n", max_id);
+            }
         }
     }
-    release(&ptable.lock); // Unlock the process table
 
-    return maxid;
+    release(&ptable.lock); // Unlock the process table
+    cprintf("Debug: Exiting maxpid function with max_id: %d\n", max_id);
+    return max_id;
 }
