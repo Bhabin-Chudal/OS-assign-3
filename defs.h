@@ -156,6 +156,7 @@ int             fetchint(uint, int*);
 int             fetchstr(uint, char**);
 void            syscall(void);
 int		smu(void);
+int		num_procs(void);
 
 // timer.c
 void            timerinit(void);

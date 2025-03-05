@@ -533,10 +533,27 @@ procdump(void)
   }
 }
 
-//prints an ifo about me as SMU student
+//prints an info about me as SMU student
 int
 smu(void)
 {
   cprintf("Bhabin Chudal @ SMU\n");
   return 0;
 }
+
+//this function returns the number of process that is currently running.
+int num_procs(void) {
+    struct proc *p;
+    int count = 0;
+
+    acquire(&ptable.lock); // Lock the process table
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        if (p->state != UNUSED){ 
+            count++; // Count active processes
+        }
+    }
+    release(&ptable.lock); // Unlock the process table
+
+    return count;
+}
+

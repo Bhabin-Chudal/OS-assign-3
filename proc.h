@@ -60,3 +60,4 @@ struct proc {
 
 //smu process declaration
 int smu(void);
+int num_procs(void);

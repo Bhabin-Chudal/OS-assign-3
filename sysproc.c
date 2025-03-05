@@ -89,8 +89,19 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+//calls function smu from proc.c 
+//and returns the string with my name and  SMU .
 int
 sys_smu(void)
 {
   return smu();
+}
+
+//calls function num_procs that gives
+// number of active processes and returns it
+int
+sys_num_procs(void)
+{
+ return num_procs();
 }
